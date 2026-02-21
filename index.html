@@ -71,7 +71,8 @@ nav {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 52px;
-  align-items: flex-start;
+  align-items: center;
+  min-height: 260px;
 }
 
 /* LEFT COL: photo overlapping + name below — all centered */
@@ -117,12 +118,17 @@ nav {
 .profile-title { font-size: 0.98rem; font-weight: 700; color: #7C3AED; margin-bottom: 8px; text-align: center; }
 .profile-dept { font-size: 0.82rem; color: #6b7280; line-height: 1.65; text-align: center; }
 
-/* RIGHT COL: quote aligned to top, starts at same height as photo top */
+/* RIGHT COL: quote vertically centered */
 .quote-wrap {
-  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  padding: 30px 0 30px 20px;
+  border-left: 4px solid #f0ebff;
 }
-.big-quote { font-size: 4rem; color: #1a1a2e; line-height: 0.5; font-family: Georgia, serif; display: block; margin-bottom: 14px; }
-.quote-wrap blockquote { font-size: 1.05rem; color: #374151; line-height: 1.9; font-style: italic; font-weight: 400; }
+.big-quote { font-size: 5rem; color: #7C3AED; line-height: 0.3; font-family: Georgia, serif; display: block; margin-bottom: 22px; }
+.quote-wrap blockquote { font-size: 1.35rem; color: #2d2d4e; line-height: 1.9; font-style: italic; font-weight: 500; }
 
 /* BIO paragraphs — full width below, separated by a light rule */
 .bio-section {
