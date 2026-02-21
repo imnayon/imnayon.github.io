@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Publications — S. M. Iqbal Mahamud</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Plus Jakarta Sans", sans-serif; background: #f0f2f5; color: #1a1a2e; }
+nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; border-bottom: 1px solid #ebebeb; z-index: 999; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-circle { width: 38px; height: 38px; border-radius: 50%; background: #7C3AED; color: #fff; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+.nav-name { font-weight: 800; font-size: 1rem; color: #1a1a2e; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: #555; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: #7C3AED; }
+.nav-cta { background: #7C3AED; color: #fff !important; padding: 9px 22px; border-radius: 7px; font-weight: 600 !important; }
+.page { padding-top: 68px; }
+.page-header { background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 50%, #7C3AED 100%); padding: 60px; }
+.page-header h1 { font-size: 2.4rem; font-weight: 800; color: white; margin-bottom: 8px; }
+.page-header p { color: rgba(255,255,255,0.7); }
+.content { max-width: 900px; margin: 0 auto; padding: 60px 40px; }
+.section-title { font-size: 0.72rem; font-weight: 700; color: #7C3AED; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.section-title::before { content: ''; display: block; width: 28px; height: 2px; background: #7C3AED; }
+.section-heading { font-size: 1.9rem; font-weight: 800; color: #12122a; margin-bottom: 32px; }
+.pub-card { background: white; border-radius: 18px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #f0f0f0; border-left: 5px solid #7C3AED; margin-bottom: 24px; transition: transform .2s, box-shadow .2s; }
+.pub-card:nth-child(2) { border-left-color: #06b6d4; }
+.pub-card:hover { transform: translateX(6px); box-shadow: 0 8px 30px rgba(124,58,237,0.1); }
+.pub-year { display: inline-block; background: #f0ebff; color: #7C3AED; font-size: 0.73rem; font-weight: 700; padding: 4px 12px; border-radius: 100px; margin-bottom: 12px; }
+.pub-card:nth-child(2) .pub-year { background: #ecfeff; color: #0e7490; }
+.pub-title { font-size: 1.08rem; font-weight: 800; color: #12122a; margin-bottom: 10px; line-height: 1.4; }
+.pub-authors { font-size: 0.82rem; color: #6b7280; margin-bottom: 8px; }
+.pub-journal { font-size: 0.88rem; color: #7C3AED; font-weight: 600; font-style: italic; }
+.pub-card:nth-child(2) .pub-journal { color: #0e7490; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><div class="nav-circle">I</div><span class="nav-name">Iqbal Mahamud</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="writing.html">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="page-header">
+    <h1>Publications</h1>
+    <p>Peer-reviewed research papers and scientific contributions.</p>
+  </div>
+  <div class="content">
+    <div class="section-title">Research Output</div>
+    <div class="section-heading">Published Papers</div>
+    <div class="pub-card">
+      <div class="pub-year">2025</div>
+      <div class="pub-title">Comparative Genomic Analysis of 66 Bacteriophages Infecting Morganella morganii Strains</div>
+      <div class="pub-authors">Mahamud, S.M.I., et al.</div>
+      <div class="pub-journal">Current Microbiology</div>
+    </div>
+    <div class="pub-card">
+      <div class="pub-year">2023</div>
+      <div class="pub-title">Genomic Identification and Characterization of Prophages Associated with Citrobacter freundii Strains</div>
+      <div class="pub-authors">Jabeen, I., Mahamud, S., et al.</div>
+      <div class="pub-journal">Journal of Advanced Biotechnology and Experimental Therapeutics</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Writing — S. M. Iqbal Mahamud</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Plus Jakarta Sans", sans-serif; background: #f0f2f5; color: #1a1a2e; }
+nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 52px; border-bottom: 1px solid #ebebeb; z-index: 999; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-circle { width: 38px; height: 38px; border-radius: 50%; background: #7C3AED; color: #fff; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+.nav-name { font-weight: 800; font-size: 1rem; color: #1a1a2e; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { color: #555; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color .2s; }
+.nav-links a:hover, .nav-links a.active { color: #7C3AED; }
+.nav-cta { background: #7C3AED; color: #fff !important; padding: 9px 22px; border-radius: 7px; font-weight: 600 !important; }
+.page { padding-top: 68px; }
+.page-header { background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 50%, #7C3AED 100%); padding: 50px 60px 0; }
+.page-header h1 { font-size: 2.4rem; font-weight: 800; color: white; margin-bottom: 8px; }
+.page-header p { color: rgba(255,255,255,0.7); margin-bottom: 30px; }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+.tab { padding: 10px 20px; border-radius: 8px 8px 0 0; font-size: 0.85rem; font-weight: 600; cursor: pointer; border: none; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); transition: background .2s; }
+.tab.active { background: #fff; color: #7C3AED; }
+.tab:hover:not(.active) { background: rgba(255,255,255,0.25); color: white; }
+.content { max-width: 1100px; margin: 0 auto; padding: 40px; }
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; background: white; border-radius: 14px; padding: 16px 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); }
+.write-btn { background: #7C3AED; color: white; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; border: none; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background .2s, transform .2s; }
+.write-btn:hover { background: #6D28D9; transform: translateY(-2px); }
+.articles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.article-card { background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #f0f0f0; cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.article-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(124,58,237,0.12); }
+.article-img { height: 180px; background: linear-gradient(135deg, #f0ebff, #ddd6fe); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+.article-body { padding: 24px; }
+.article-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.cat-badge { font-size: 0.7rem; font-weight: 700; padding: 4px 10px; border-radius: 100px; }
+.cat-sports { background: #fef3c7; color: #d97706; }
+.cat-micro { background: #ecfdf5; color: #059669; }
+.cat-free { background: #eff6ff; color: #2563eb; }
+.cat-research { background: #fdf4ff; color: #9333ea; }
+.article-date { font-size: 0.72rem; color: #9ca3af; }
+.article-title { font-size: 1rem; font-weight: 800; color: #12122a; margin-bottom: 8px; line-height: 1.4; }
+.article-excerpt { font-size: 0.84rem; color: #6b7280; line-height: 1.7; }
+.read-more { display: inline-block; margin-top: 16px; color: #7C3AED; font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+.empty-state { text-align: center; padding: 80px 20px; color: #9ca3af; grid-column: 1/-1; }
+.empty-state .empty-icon { font-size: 4rem; margin-bottom: 16px; }
+
+/* EDITOR MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.open { display: flex; }
+.modal { background: white; border-radius: 20px; width: 100%; max-width: 680px; max-height: 90vh; overflow-y: auto; padding: 36px; box-shadow: 0 24px 60px rgba(0,0,0,0.2); }
+.modal h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 24px; }
+.form-group { margin-bottom: 18px; }
+.form-label { font-size: 0.78rem; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; display: block; }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 12px 16px; border: 1.5px solid #e5e7eb; border-radius: 10px; font-family: inherit; font-size: 0.92rem; color: #1a1a2e; outline: none; transition: border-color .2s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #7C3AED; }
+.form-textarea { min-height: 200px; resize: vertical; line-height: 1.7; }
+.modal-btns { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; }
+.btn-cancel { background: #f3f4f6; color: #374151; padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.88rem; border: none; cursor: pointer; }
+.btn-publish { background: #7C3AED; color: white; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; border: none; cursor: pointer; }
+
+/* ARTICLE READ MODAL */
+.read-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9998; display: none; align-items: flex-start; justify-content: center; padding: 80px 20px 20px; overflow-y: auto; }
+.read-modal.open { display: flex; }
+.read-content { background: white; border-radius: 20px; width: 100%; max-width: 720px; padding: 48px; box-shadow: 0 24px 60px rgba(0,0,0,0.2); position: relative; }
+.read-close { position: absolute; top: 20px; right: 20px; background: #f3f4f6; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
+.read-content h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
+.read-content .read-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 28px; }
+.read-content .body { font-size: 0.96rem; color: #374151; line-height: 1.9; white-space: pre-wrap; }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .page-header { padding: 40px 24px 0; }
+  .content { padding: 24px 16px; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4) { display: none; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><div class="nav-circle">I</div><span class="nav-name">Iqbal Mahamud</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="writing.html" class="active">Writing</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+<div class="page">
+  <div class="page-header">
+    <h1>My Writing</h1>
+    <p>Articles, thoughts, and research notes.</p>
+    <div class="tabs">
+      <div class="tab active" onclick="filterArticles('all',this)">All</div>
+      <div class="tab" onclick="filterArticles('sports',this)">⚽ Sports</div>
+      <div class="tab" onclick="filterArticles('microbiology',this)">🔬 Microbiology</div>
+      <div class="tab" onclick="filterArticles('free',this)">✍️ Free Writing</div>
+      <div class="tab" onclick="filterArticles('research',this)">📋 Research Notes</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="top-bar">
+      <span style="font-size:0.9rem;color:#6b7280"><strong id="articleCount" style="color:#1a1a2e">0 articles</strong> published</span>
+      <button class="write-btn" onclick="openEditor()">✏️ Write New Article</button>
+    </div>
+    <div class="articles-grid" id="articlesGrid">
+      <div class="empty-state">
+        <div class="empty-icon">✍️</div>
+        <p>No articles yet. Click <strong>"Write New Article"</strong> to publish your first piece!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WRITE MODAL -->
+<div class="modal-overlay" id="editorModal">
+  <div class="modal">
+    <h2>✏️ Write New Article</h2>
+    <div class="form-group"><label class="form-label">Title</label><input class="form-input" id="artTitle" placeholder="Enter your article title..."/></div>
+    <div class="form-group"><label class="form-label">Category</label>
+      <select class="form-select" id="artCat">
+        <option value="sports">⚽ Sports</option>
+        <option value="microbiology">🔬 Microbiology</option>
+        <option value="free">✍️ Free Writing</option>
+        <option value="research">📋 Research Notes</option>
+      </select>
+    </div>
+    <div class="form-group"><label class="form-label">Content</label><textarea class="form-textarea" id="artBody" placeholder="Write your article here..."></textarea></div>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeEditor()">Cancel</button>
+      <button class="btn-publish" onclick="publishArticle()">Publish →</button>
+    </div>
+  </div>
+</div>
+
+<!-- READ MODAL -->
+<div class="read-modal" id="readModal">
+  <div class="read-content">
+    <button class="read-close" onclick="closeRead()">✕</button>
+    <div id="readBody"></div>
+  </div>
+</div>
+
+<script>
+var articles = JSON.parse(localStorage.getItem('writing_articles') || '[]');
+var currentCat = 'all';
+var catColors = { sports:'cat-sports', microbiology:'cat-micro', free:'cat-free', research:'cat-research' };
+var catLabels = { sports:'⚽ Sports', microbiology:'🔬 Microbiology', free:'✍️ Free Writing', research:'📋 Research Notes' };
+var catEmojis = { sports:'⚽', microbiology:'🔬', free:'✍️', research:'📋' };
+
+function save() { localStorage.setItem('writing_articles', JSON.stringify(articles)); }
+
+function filterArticles(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+  el.classList.add('active');
+  render();
+}
+
+function render() {
+  var filtered = currentCat === 'all' ? articles : articles.filter(function(a){ return a.cat === currentCat; });
+  document.getElementById('articleCount').textContent = articles.length + ' article' + (articles.length !== 1 ? 's' : '');
+  var grid = document.getElementById('articlesGrid');
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><div class="empty-icon">✍️</div><p>No articles in this category yet.</p></div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(function(a, i) {
+    return '<div class="article-card" onclick="readArticle(' + articles.indexOf(a) + ')">' +
+      '<div class="article-img">' + catEmojis[a.cat] + '</div>' +
+      '<div class="article-body">' +
+      '<div class="article-meta"><span class="cat-badge ' + catColors[a.cat] + '">' + catLabels[a.cat] + '</span><span class="article-date">' + a.date + '</span></div>' +
+      '<div class="article-title">' + a.title + '</div>' +
+      '<div class="article-excerpt">' + a.body.substring(0, 120) + (a.body.length > 120 ? '...' : '') + '</div>' +
+      '<span class="read-more">Read more →</span></div></div>';
+  }).join('');
+}
+
+function openEditor() { document.getElementById('editorModal').classList.add('open'); }
+function closeEditor() { document.getElementById('editorModal').classList.remove('open'); document.getElementById('artTitle').value=''; document.getElementById('artBody').value=''; }
+
+function publishArticle() {
+  var title = document.getElementById('artTitle').value.trim();
+  var body = document.getElementById('artBody').value.trim();
+  var cat = document.getElementById('artCat').value;
+  if (!title || !body) { alert('Please fill in the title and content.'); return; }
+  var now = new Date();
+  articles.unshift({ title: title, body: body, cat: cat, date: now.toLocaleDateString('en-US', {year:'numeric',month:'short',day:'numeric'}) });
+  save(); closeEditor(); render();
+}
+
+function readArticle(idx) {
+  var a = articles[idx];
+  document.getElementById('readBody').innerHTML = '<span class="cat-badge ' + catColors[a.cat] + '" style="margin-bottom:16px;display:inline-block">' + catLabels[a.cat] + '</span>' +
+    '<h1>' + a.title + '</h1>' +
+    '<div class="read-meta"><span style="font-size:0.8rem;color:#9ca3af">' + a.date + '</span></div>' +
+    '<div class="body">' + a.body + '</div>';
+  document.getElementById('readModal').classList.add('open');
+}
+function closeRead() { document.getElementById('readModal').classList.remove('open'); }
+document.getElementById('readModal').addEventListener('click', function(e){ if(e.target===this) closeRead(); });
+render();
+</script>
+</body>
+</html>
