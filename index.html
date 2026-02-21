@@ -176,6 +176,88 @@ nav {
   .hero-left { padding-bottom: 20px; }
   .nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4) { display: none; }
 }
+  /* ===== ACADEMIC LAYOUT STYLE ===== */
+
+.academic-hero {
+  background: #f5f6fa;
+  padding-bottom: 80px;
+}
+
+.hero-banner {
+  height: 260px;
+  background: linear-gradient(135deg, #1a1a2e, #3d3d60);
+  position: relative;
+}
+
+.lab-title {
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+  background: rgba(255,165,0,0.85);
+  padding: 16px 30px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+}
+
+.profile-section {
+  max-width: 1100px;
+  margin: -90px auto 40px;
+  background: white;
+  display: grid;
+  grid-template-columns: 240px 1fr 1fr;
+  gap: 40px;
+  padding: 50px;
+  align-items: start;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.profile-info h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.affiliation {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.profile-quote blockquote {
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+  border-left: 4px solid #7C3AED;
+  padding-left: 20px;
+}
+
+.profile-description {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 60px;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: #444;
+}
+
+.profile-description p {
+  margin-bottom: 20px;
+}
 </style>
 </head>
 <body>
@@ -196,22 +278,59 @@ nav {
   </ul>
 </nav>
 
-<div class="page">
+<div class="academic-hero">
 
-  <!-- HERO -->
-  <div class="hero">
+  <!-- TOP BANNER -->
+  <div class="hero-banner">
+    <div class="lab-title">Iqbal Research Lab</div>
+  </div>
 
-    <!-- LEFT TEXT -->
-    <div class="hero-left">
-      <h1 class="hero-heading">Hello, I'm<br/>S. M. Iqbal<br/>Mahamud</h1>
-      <p class="hero-desc">
-        I'm a <span class="hl-purple">Microbiologist</span> and
-        <span class="hl-coral">Computational Biologist</span> based in Dhaka, Bangladesh.
-        I specialize in bacteriophage biology, microbial genomics, and bioinformatics —
-        working to combat antimicrobial resistance through data-driven science.
-      </p>
-      <a href="contact.html" class="hero-btn">Say Hello!</a>
+  <!-- PROFILE SECTION -->
+  <div class="profile-section">
+
+    <!-- Profile Image -->
+    <div class="profile-image">
+      <img src="your-photo.jpg" alt="Iqbal Mahamud">
     </div>
+
+    <!-- Name + Title -->
+    <div class="profile-info">
+      <h1>S. M. Iqbal Mahamud, Ph.D.</h1>
+      <p class="title">Microbiologist & Bioinformatician</p>
+      <p class="affiliation">
+        Department of Microbiology <br>
+        University of Dhaka
+      </p>
+    </div>
+
+    <!-- Quote -->
+    <div class="profile-quote">
+      <blockquote>
+        “My passion for microbial genomics and bacteriophage biology
+        drives my mission to combat antimicrobial resistance
+        through computational science and laboratory research.”
+      </blockquote>
+    </div>
+
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="profile-description">
+    <p>
+      S. M. Iqbal Mahamud is a microbiologist and computational biologist
+      specializing in bacteriophage biology, microbial genomics,
+      and bioinformatics. His research focuses on antimicrobial resistance,
+      genomic data analysis, and translational microbiology.
+    </p>
+
+    <p>
+      His work integrates wet-lab experimentation with advanced
+      computational methods to better understand microbial
+      pathogenesis and phage-host interactions.
+    </p>
+  </div>
+
+</div>
 
     <!-- RIGHT PHOTO — sits on bottom, cut off like reference -->
     <div class="hero-right">
