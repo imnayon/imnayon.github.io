@@ -1,442 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>S. M. Iqbal Mahamud — Microbiologist & Bioinformatician</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iqbal Mahamud — Research Lab</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background: #e8eaf0;
-  color: #1a1a2e;
-  overflow-x: hidden;
+  background:#efefef;
+  color:#1a1a2e;
 }
 
-/* ── NAV ── */
+/* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; height: 68px;
-  background: #fff;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 52px;
-  border-bottom: 1px solid #ebebeb;
-  z-index: 999;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  height:70px;
+  background:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 60px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
 }
+
 .nav-brand {
-  display: flex; align-items: center; gap: 10px; text-decoration: none;
-}
-.nav-circle {
-  width: 38px; height: 38px; border-radius: 50%;
-  background: #7C3AED;
-  color: #fff; font-weight: 800; font-size: 0.95rem;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-name { font-weight: 800; font-size: 1rem; color: #1a1a2e; }
-.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-.nav-links a { color: #555; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color .2s; }
-.nav-links a:hover { color: #1a1a2e; }
-.nav-cta {
-  background: #7C3AED; color: #fff !important;
-  padding: 9px 22px; border-radius: 7px; font-weight: 600 !important;
-  transition: background .2s !important;
-}
-.nav-cta:hover { background: #6D28D9 !important; }
-
-/* ── PAGE ── */
-.page {
-  min-height: 100vh;
-  padding-top: 68px;
-  background: linear-gradient(160deg, #eceef5 0%, #dfe3ef 100%);
-  display: flex; flex-direction: column;
+  font-weight:800;
+  font-size:1.1rem;
 }
 
-/* ── HERO ── */
-.hero {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  max-width: 1280px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 60px 60px 0 60px;
-  gap: 40px;
-  position: relative;
+.nav-links a {
+  margin-left:30px;
+  text-decoration:none;
+  color:#444;
+  font-weight:500;
 }
 
-/* LEFT */
-.hero-left { padding-bottom: 40px; }
-
-.hero-heading {
-  font-size: clamp(2.6rem, 4vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: #12122a;
-  margin-bottom: 22px;
+.nav-links a:last-child {
+  background:#7C3AED;
+  color:white;
+  padding:8px 18px;
+  border-radius:6px;
 }
 
-.hero-desc {
-  font-size: 0.95rem; line-height: 1.85;
-  color: #5a5f72; max-width: 430px;
-  margin-bottom: 32px; font-weight: 400;
-}
-.hl-purple { color: #7C3AED; font-weight: 600; }
-.hl-coral  { color: #E53E3E; font-weight: 600; }
-
-.hero-btn {
-  display: inline-block;
-  background: #7C3AED; color: #fff;
-  padding: 12px 28px; border-radius: 8px;
-  font-weight: 700; font-size: 0.92rem;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(124,58,237,0.4);
-  transition: transform .2s, box-shadow .2s;
-}
-.hero-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(124,58,237,0.5); }
-
-/* RIGHT — photo card sitting on bottom */
-.hero-right {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100%;
-  padding-bottom: 0;
-}
-
-.photo-card {
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 3 / 4;
-  background: #fff;
-  border-radius: 24px 24px 0 0;
-  overflow: hidden;
-  box-shadow: 0 16px 50px rgba(0,0,0,0.12);
-  position: relative;
-  cursor: pointer;
-}
-.photo-card img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  display: block;
-}
-
-/* placeholder person */
-.placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(180deg, #f5f3ff 0%, #ddd6fe 60%, #c4b5fd 100%);
-  display: flex; align-items: flex-end; justify-content: center;
-  overflow: hidden;
-}
-.placeholder svg { width: 85%; display: block; }
-
-.hover-hint {
-  position: absolute; inset: 0;
-  background: rgba(124,58,237,0.75);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  color: #fff; font-weight: 700; font-size: 0.92rem;
-  opacity: 0; transition: opacity .25s;
-  border-radius: 24px 24px 0 0; gap: 8px;
-}
-.hover-hint .icon { font-size: 2.2rem; }
-.photo-card:hover .hover-hint { opacity: 1; }
-
-/* ── STATS BAR ── */
-.stats-bar {
-  background: #fff;
-  max-width: 1280px; width: 100%; margin: 0 auto;
-  display: flex;
-  border-top: 1px solid #ebebeb;
-  box-shadow: 0 -2px 20px rgba(0,0,0,0.05);
-}
-.stat {
-  flex: 1; padding: 22px 20px; text-align: center;
-  border-right: 1px solid #f0f0f0;
-}
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-size: 1.75rem; font-weight: 800; color: #12122a; line-height: 1;
-  margin-bottom: 5px;
-}
-.stat-num sup { color: #7C3AED; font-size: 1rem; }
-.stat-label {
-  font-size: 0.65rem; font-weight: 700; color: #9ca3af;
-  text-transform: uppercase; letter-spacing: 0.07em;
-}
-
-/* RESPONSIVE */
-@media (max-width: 860px) {
-  nav { padding: 0 20px; }
-  .hero { grid-template-columns: 1fr; padding: 40px 24px 0; gap: 30px; }
-  .hero-right { order: -1; }
-  .photo-card { max-width: 280px; aspect-ratio: 3/4; border-radius: 20px 20px 0 0; }
-  .hero-left { padding-bottom: 20px; }
-  .nav-links li:nth-child(2),.nav-links li:nth-child(3),.nav-links li:nth-child(4) { display: none; }
-}
-  /* ===== ACADEMIC LAYOUT STYLE ===== */
-
-.academic-hero {
-  background: #f5f6fa;
-  padding-bottom: 80px;
-}
-
+/* HERO BANNER */
 .hero-banner {
-  height: 260px;
-  background: linear-gradient(135deg, #1a1a2e, #3d3d60);
-  position: relative;
+  height:320px;
+  background:linear-gradient(135deg,#1a1a2e,#3d3d60);
+  position:relative;
 }
 
 .lab-title {
-  position: absolute;
-  bottom: 30px;
-  right: 60px;
-  background: rgba(255,165,0,0.85);
-  padding: 16px 30px;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: white;
+  position:absolute;
+  bottom:40px;
+  right:80px;
+  background:#e59e0b;
+  padding:18px 36px;
+  font-size:1.8rem;
+  font-weight:700;
+  color:white;
 }
 
+/* PROFILE SECTION */
 .profile-section {
-  max-width: 1100px;
-  margin: -90px auto 40px;
-  background: white;
-  display: grid;
-  grid-template-columns: 240px 1fr 1fr;
-  gap: 40px;
-  padding: 50px;
-  align-items: start;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  max-width:1100px;
+  margin:-120px auto 50px;
+  background:#efefef;
+  display:grid;
+  grid-template-columns:260px 1fr 1fr;
+  gap:40px;
+  padding:60px 40px;
 }
 
 .profile-image img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 6px solid white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  object-fit:cover;
+  border:8px solid #efefef;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
 .profile-info h1 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-size:2.4rem;
+  margin-bottom:12px;
+  color:#2c3e60;
 }
 
-.title {
-  font-weight: 600;
-  margin-bottom: 8px;
+.profile-info .title {
+  font-weight:600;
+  margin-bottom:10px;
 }
 
-.affiliation {
-  font-size: 0.9rem;
-  color: #666;
+.profile-info .affiliation {
+  font-size:0.9rem;
+  color:#666;
 }
 
 .profile-quote blockquote {
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-  border-left: 4px solid #7C3AED;
-  padding-left: 20px;
+  font-style:italic;
+  line-height:1.8;
+  color:#3a4b63;
+  border-left:5px solid #7C3AED;
+  padding-left:20px;
 }
 
+/* DESCRIPTION */
 .profile-description {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 60px;
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: #444;
+  max-width:1000px;
+  margin:0 auto 80px;
+  padding:0 40px;
+  line-height:1.9;
+  color:#444;
 }
 
 .profile-description p {
-  margin-bottom: 20px;
+  margin-bottom:20px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-brand">
-    <div class="nav-circle">I</div>
-    <span class="nav-name">Iqbal Mahamud</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="skills.html">Skills</a></li>
-    <li><a href="experience.html">Experience</a></li>
-    <li><a href="publications.html">Publications</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
+  <div class="nav-brand">Iqbal Mahamud</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Publications</a>
+    <a href="#">Contact</a>
+  </div>
 </nav>
 
-<div class="academic-hero">
+<div class="hero-banner">
+  <div class="lab-title">Iqbal Research Lab</div>
+</div>
 
-  <!-- TOP BANNER -->
-  <div class="hero-banner">
-    <div class="lab-title">Iqbal Research Lab</div>
+<div class="profile-section">
+
+  <div class="profile-image">
+    <img src="your-photo.jpg" alt="Iqbal Mahamud">
   </div>
 
-  <!-- PROFILE SECTION -->
-  <div class="profile-section">
-
-    <!-- Profile Image -->
-    <div class="profile-image">
-      <img src="nayan.jpg" alt="Iqbal Mahamud">
+  <div class="profile-info">
+    <h1>S. M. Iqbal Mahamud, Ph.D.</h1>
+    <div class="title">Microbiologist & Bioinformatician</div>
+    <div class="affiliation">
+      Department of Microbiology<br>
+      University of Dhaka
     </div>
-
-    <!-- Name + Title -->
-    <div class="profile-info">
-      <h1>S. M. Iqbal Mahamud, Ph.D.</h1>
-      <p class="title">Microbiologist & Bioinformatician</p>
-      <p class="affiliation">
-        Department of Microbiology <br>
-        University of Dhaka
-      </p>
-    </div>
-
-    <!-- Quote -->
-    <div class="profile-quote">
-      <blockquote>
-        “My passion for microbial genomics and bacteriophage biology
-        drives my mission to combat antimicrobial resistance
-        through computational science and laboratory research.”
-      </blockquote>
-    </div>
-
   </div>
 
-  <!-- DESCRIPTION -->
-  <div class="profile-description">
-    <p>
-      S. M. Iqbal Mahamud is a microbiologist and computational biologist
-      specializing in bacteriophage biology, microbial genomics,
-      and bioinformatics. His research focuses on antimicrobial resistance,
-      genomic data analysis, and translational microbiology.
-    </p>
-
-    <p>
-      His work integrates wet-lab experimentation with advanced
-      computational methods to better understand microbial
-      pathogenesis and phage-host interactions.
-    </p>
+  <div class="profile-quote">
+    <blockquote>
+      “My passion for bacteriophage biology drives my mission to combat antimicrobial resistance through computational science and laboratory research.”
+    </blockquote>
   </div>
 
 </div>
 
-    <!-- RIGHT PHOTO — sits on bottom, cut off like reference -->
-    <div class="hero-right">
-      <div class="photo-card" id="photoCard" onclick="replacePhoto()">
-        <div class="placeholder">
-          <!-- Professional suited figure -->
-          <svg viewBox="0 0 280 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Trousers -->
-            <rect x="95" y="295" width="38" height="110" rx="7" fill="#2d2d4e"/>
-            <rect x="147" y="295" width="38" height="110" rx="7" fill="#2d2d4e"/>
-            <!-- Shoes -->
-            <ellipse cx="114" cy="402" rx="22" ry="8" fill="#1a1a2e"/>
-            <ellipse cx="166" cy="402" rx="22" ry="8" fill="#1a1a2e"/>
-            <!-- Suit jacket -->
-            <rect x="75" y="195" width="130" height="115" rx="12" fill="#3d3d60"/>
-            <!-- White shirt -->
-            <rect x="122" y="196" width="36" height="80" rx="3" fill="#f8f8ff"/>
-            <!-- Tie purple -->
-            <polygon points="140,200 134,216 140,285 146,216" fill="#7C3AED"/>
-            <!-- Lapels -->
-            <path d="M75 195 L122 228 L122 195Z" fill="#2e2e50"/>
-            <path d="M205 195 L158 228 L158 195Z" fill="#2e2e50"/>
-            <!-- Arms -->
-            <rect x="46" y="198" width="33" height="88" rx="14" fill="#3d3d60"/>
-            <rect x="201" y="198" width="33" height="88" rx="14" fill="#3d3d60"/>
-            <!-- Hands crossed (reference pose) -->
-            <ellipse cx="80" cy="288" rx="18" ry="11" fill="#f5c18e"/>
-            <ellipse cx="200" cy="288" rx="18" ry="11" fill="#f5c18e"/>
-            <!-- Overlapping hands center -->
-            <ellipse cx="130" cy="294" rx="22" ry="10" fill="#f5c18e"/>
-            <ellipse cx="150" cy="294" rx="22" ry="10" fill="#f5c18e"/>
-            <!-- Neck -->
-            <rect x="126" y="168" width="28" height="33" rx="9" fill="#f5c18e"/>
-            <!-- Head -->
-            <ellipse cx="140" cy="138" rx="52" ry="57" fill="#f5c18e"/>
-            <!-- Hair -->
-            <ellipse cx="140" cy="90" rx="52" ry="24" fill="#3b2010"/>
-            <rect x="88" y="88" width="14" height="42" rx="7" fill="#3b2010"/>
-            <rect x="178" y="88" width="14" height="42" rx="7" fill="#3b2010"/>
-            <!-- Ears -->
-            <ellipse cx="89" cy="143" rx="8" ry="11" fill="#e8ac7a"/>
-            <ellipse cx="191" cy="143" rx="8" ry="11" fill="#e8ac7a"/>
-            <!-- Eyes -->
-            <ellipse cx="122" cy="140" rx="9" ry="10" fill="white"/>
-            <ellipse cx="158" cy="140" rx="9" ry="10" fill="white"/>
-            <ellipse cx="123" cy="141" rx="5.5" ry="6.5" fill="#2d1a0e"/>
-            <ellipse cx="159" cy="141" rx="5.5" ry="6.5" fill="#2d1a0e"/>
-            <ellipse cx="124" cy="140" rx="2" ry="2.5" fill="white"/>
-            <ellipse cx="160" cy="140" rx="2" ry="2.5" fill="white"/>
-            <!-- Eyebrows -->
-            <path d="M113 126 Q122 120 131 126" stroke="#3b2010" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-            <path d="M149 126 Q158 120 167 126" stroke="#3b2010" stroke-width="2.8" stroke-linecap="round" fill="none"/>
-            <!-- Nose -->
-            <path d="M136 151 Q140 160 144 151" stroke="#c8845a" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-            <!-- Smile -->
-            <path d="M128 167 Q140 177 152 167" stroke="#b8703a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <!-- Suit buttons -->
-            <circle cx="140" cy="258" r="2.5" fill="#2e2e50"/>
-            <circle cx="140" cy="270" r="2.5" fill="#2e2e50"/>
-          </svg>
-        </div>
-        <div class="hover-hint">
-          <div class="icon">📸</div>
-          Click to upload your photo
-        </div>
-      </div>
-    </div>
+<div class="profile-description">
+  <p>
+    S. M. Iqbal Mahamud is a microbiologist and computational biologist specializing in bacteriophage biology, microbial genomics, and bioinformatics. His research focuses on antimicrobial resistance, genomic data analysis, and translational microbiology.
+  </p>
 
-  </div>
-
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">2<sup>+</sup></div>
-      <div class="stat-label">Publications</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">3<sup>+</sup></div>
-      <div class="stat-label">Years Experience</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">2</div>
-      <div class="stat-label">Conferences</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">3.56</div>
-      <div class="stat-label">CGPA</div>
-    </div>
-  </div>
-
+  <p>
+    His work integrates wet-lab experimentation with advanced computational methods to better understand microbial pathogenesis and phage-host interactions.
+  </p>
 </div>
 
-<script>
-function replacePhoto() {
-  var inp = document.createElement('input');
-  inp.type = 'file'; inp.accept = 'image/*';
-  inp.onchange = function(e) {
-    var r = new FileReader();
-    r.onload = function(ev) {
-      var c = document.getElementById('photoCard');
-      c.innerHTML = '<img src="' + ev.target.result + '"/><div class="hover-hint" style="border-radius:24px 24px 0 0"><div class="icon">📸</div>Click to change</div>';
-    };
-    r.readAsDataURL(e.target.files[0]);
-  };
-  inp.click();
-}
-</script>
 </body>
 </html>
