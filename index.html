@@ -130,14 +130,19 @@ nav {
 .big-quote { font-size: 5rem; color: #7C3AED; line-height: 0.3; font-family: Georgia, serif; display: block; margin-bottom: 22px; }
 .quote-wrap blockquote { font-size: 1.35rem; color: #2d2d4e; line-height: 1.9; font-style: italic; font-weight: 500; }
 
-/* BIO paragraphs — full width below, separated by a light rule */
+/* BIO paragraphs — two column matching profile-top grid */
 .bio-section {
   background: #fff;
-  padding: 36px 60px 60px;
+  padding: 0 60px 60px;
   border-top: 1px solid #f0f2f5;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 52px;
 }
-.bio-section p { font-size: 0.92rem; color: #4b5563; line-height: 1.95; margin-bottom: 16px; max-width: 1100px; }
-.bio-section p:last-child { margin-bottom: 0; }
+.bio-spacer { /* empty left col to align with photo col */ }
+.bio-text p { font-size: 0.92rem; color: #4b5563; line-height: 1.95; margin-bottom: 16px; }
+.bio-text p:last-child { margin-bottom: 0; }
+.bio-text { padding-top: 36px; padding-left: 20px; border-left: 4px solid #f0ebff; }
 
 /* STATS */
 .stats-bar {
@@ -153,7 +158,9 @@ nav {
 @media (max-width: 900px) {
   nav { padding: 0 20px; }
   .profile-card, .bio-section { padding-left: 24px; padding-right: 24px; }
-  .profile-top { grid-template-columns: 1fr; gap: 24px; }
+  .profile-top, .bio-section { grid-template-columns: 1fr; gap: 24px; }
+  .bio-spacer { display: none; }
+  .bio-text { border-left: none; padding-left: 0; }
   .profile-photo-wrap { margin-top: -75px; }
   .nav-links li:nth-child(3),.nav-links li:nth-child(4),.nav-links li:nth-child(5) { display: none; }
 }
@@ -218,12 +225,15 @@ nav {
 
 <!-- BIO -->
 <div class="bio-section">
-  <p>
-    S. M. Iqbal Mahamud is a microbiologist and computational biologist whose research focuses on bacteriophage biology, microbial genomics, and phage host interactions. His work spans the full pipeline of phage research, covering isolation, host-range testing, comparative genomic characterization, and therapeutic assessment. He specifically targets multidrug-resistant pathogens including <em>Pseudomonas aeruginosa</em>, <em>Citrobacter freundii</em>, and <em>Morganella morganii</em>, contributing to the growing body of research aimed at combating antimicrobial resistance.
-  </p>
-  <p>
-    With a Bachelor's degree in Microbiology from North South University, where he graduated with Distinction and Cum Laude recognition, and graduate studies in Biochemical Engineering at SIIT Thammasat University, Iqbal combines rigorous laboratory training with modern computational tools. He has published peer-reviewed research in <em>Current Microbiology</em> and the <em>Journal of Advanced Biotechnology and Experimental Therapeutics</em>, and has presented at national and international conferences in Bangladesh. He is actively seeking research collaborations in phage therapy, genomics, and microbial biotechnology.
-  </p>
+  <div class="bio-spacer"></div>
+  <div class="bio-text">
+    <p>
+      S. M. Iqbal Mahamud is a microbiologist and computational biologist whose research focuses on bacteriophage biology, microbial genomics, and phage host interactions. His work spans the full pipeline of phage research, covering isolation, host-range testing, comparative genomic characterization, and therapeutic assessment. He specifically targets multidrug-resistant pathogens including <em>Pseudomonas aeruginosa</em>, <em>Citrobacter freundii</em>, and <em>Morganella morganii</em>, contributing to the growing body of research aimed at combating antimicrobial resistance.
+    </p>
+    <p>
+      With a Bachelor's degree in Microbiology from North South University, where he graduated with Distinction and Cum Laude recognition, and graduate studies in Biochemical Engineering at SIIT Thammasat University, Iqbal combines rigorous laboratory training with modern computational tools. He has published peer-reviewed research in <em>Current Microbiology</em> and the <em>Journal of Advanced Biotechnology and Experimental Therapeutics</em>, and has presented at national and international conferences in Bangladesh. He is actively seeking research collaborations in phage therapy, genomics, and microbial biotechnology.
+    </p>
+  </div>
 </div>
 
 <!-- STATS -->
