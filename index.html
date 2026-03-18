@@ -9,7 +9,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Plus Jakarta Sans", sans-serif; background: #f5f6fa; color: #1a1a2e; overflow-x: hidden; }
 
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; height: 68px;
   background: #fff; display: flex; align-items: center; justify-content: space-between;
@@ -17,152 +17,106 @@ nav {
   z-index: 999; box-shadow: 0 1px 6px rgba(0,0,0,0.06);
 }
 .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-circle { width: 38px; height: 38px; border-radius: 50%; background: #7C3AED; color: #fff; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; }
+.nav-circle { width: 38px; height: 38px; border-radius: 50%; background: #7C3AED; color: #fff; font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .nav-name { font-weight: 800; font-size: 1rem; color: #1a1a2e; }
-.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
 .nav-links a { color: #555; text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color .2s; }
 .nav-links a:hover, .nav-links a.active { color: #7C3AED; }
-.nav-cta { background: #7C3AED; color: #fff !important; padding: 9px 22px; border-radius: 7px; font-weight: 600 !important; }
+.nav-cta { background: #7C3AED; color: #fff !important; padding: 9px 20px; border-radius: 7px; font-weight: 600 !important; white-space: nowrap; }
 .nav-cta:hover { background: #6D28D9 !important; }
 
-/* HERO BANNER */
-.hero-banner {
-  margin-top: 68px;
-  position: relative;
-  height: 320px;
-  overflow: hidden;
-}
-.banner-bg {
-  
-  background:
-    radial-gradient(ellipse 55% 75% at 18% 55%, rgba(34,197,94,0.6) 0%, transparent 65%),
-    radial-gradient(ellipse 38% 55% at 58% 28%, rgba(251,146,60,0.55) 0%, transparent 60%),
-    radial-gradient(ellipse 45% 65% at 82% 68%, rgba(34,197,94,0.4) 0%, transparent 55%),
-    radial-gradient(ellipse 28% 38% at 42% 82%, rgba(250,204,21,0.28) 0%, transparent 50%),
-    radial-gradient(ellipse 35% 50% at 70% 20%, rgba(251,146,60,0.35) 0%, transparent 55%),
-    linear-gradient(140deg, #020c02 0%, #051308 45%, #030c08 100%);
-}
-.banner-bg::before {
-  content: '';
-  position: absolute; inset: -20%; width: 140%; height: 140%;
-  background-image:
-    radial-gradient(circle 200px at 22% 50%, transparent 155px, rgba(34,197,94,0.22) 156px, rgba(34,197,94,0.22) 162px, transparent 163px),
-    radial-gradient(circle 150px at 60% 35%, transparent 110px, rgba(251,146,60,0.28) 111px, rgba(251,146,60,0.28) 116px, transparent 117px),
-    radial-gradient(circle 240px at 78% 65%, transparent 185px, rgba(34,197,94,0.16) 186px, rgba(34,197,94,0.16) 192px, transparent 193px),
-    radial-gradient(circle 110px at 43% 78%, transparent 78px, rgba(250,204,21,0.2) 79px, rgba(250,204,21,0.2) 84px, transparent 85px),
-    radial-gradient(circle 130px at 12% 20%, transparent 92px, rgba(34,197,94,0.18) 93px, rgba(34,197,94,0.18) 98px, transparent 99px);
-}
-.banner-bg::after {
-  content: '';
-  
-  background:
-    linear-gradient(90deg, transparent 50%, rgba(0,0,0,0.15) 100%);
-}
+/* hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #1a1a2e; border-radius: 2px; transition: all .3s; }
 
+/* mobile menu */
+.mobile-menu {
+  display: none; position: fixed; top: 68px; left: 0; right: 0;
+  background: #fff; border-bottom: 1px solid #e5e7eb;
+  padding: 16px 24px; flex-direction: column; gap: 4px;
+  z-index: 998; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: #374151; text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+.mobile-menu a:last-child { border-bottom: none; color: #7C3AED; font-weight: 700; }
+.mobile-menu a:hover { color: #7C3AED; }
 
-/* WHITE PROFILE CARD */
-.profile-card {
-  background: #fff;
-  padding: 0 60px 0;
-}
+/* ── BANNER ── */
+.hero-banner { margin-top: 68px; position: relative; height: 320px; overflow: hidden; }
+.hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
-/* TOP ROW: photo-col left, quote right — side by side */
-.profile-top {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 52px;
-  align-items: center;
-  min-height: 260px;
-}
-
-/* LEFT COL: photo overlapping + name below — all centered */
-.profile-left-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* circular photo overlapping banner */
-.profile-photo-wrap {
-  margin-top: -95px;
-  margin-bottom: 18px;
-  z-index: 10;
-  position: relative;
-}
-.profile-photo {
-  width: 185px; height: 185px; border-radius: 50%;
-  border: 6px solid #fff;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  overflow: hidden; background: #c4b5fd;
-  position: relative;
-}
+/* ── PROFILE CARD ── */
+.profile-card { background: #fff; padding: 0 60px 0; }
+.profile-top { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: center; min-height: 260px; }
+.profile-left-col { display: flex; flex-direction: column; align-items: center; }
+.profile-photo-wrap { margin-top: -95px; margin-bottom: 18px; z-index: 10; position: relative; }
+.profile-photo { width: 185px; height: 185px; border-radius: 50%; border: 6px solid #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.2); overflow: hidden; background: #c4b5fd; position: relative; }
 .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-.photo-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #c4b5fd, #7C3AED);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 3.5rem; color: white; font-weight: 800;
-}
-.photo-hover {
-  
-  background: rgba(124,58,237,0.72);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity .25s;
-  font-size: 0.72rem; font-weight: 700; color: white; text-align: center; padding: 12px;
-}
-.profile-photo:hover .photo-hover { opacity: 1; }
-
-/* name/title BELOW photo — center aligned */
-.profile-name { font-size: 2rem; font-weight: 800; color: #12122a; margin-bottom: 2px; line-height: 1.2; text-align: center; }
+.profile-name { font-size: 1.9rem; font-weight: 800; color: #12122a; margin-bottom: 2px; line-height: 1.2; text-align: center; }
 .name-bar { width: 52px; height: 3px; background: #7C3AED; border-radius: 2px; margin: 10px auto 12px; }
-.profile-title { font-size: 0.98rem; font-weight: 700; color: #7C3AED; margin-bottom: 8px; text-align: center; }
+.profile-title { font-size: 0.95rem; font-weight: 700; color: #7C3AED; margin-bottom: 8px; text-align: center; }
 .profile-dept { font-size: 0.82rem; color: #6b7280; line-height: 1.65; text-align: center; }
 
-/* RIGHT COL: quote vertically centered */
-.quote-wrap {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: stretch;
-  padding: 30px 0 30px 20px;
-  border-left: 4px solid #f0ebff;
-}
+/* quote */
+.quote-wrap { display: flex; flex-direction: column; justify-content: center; align-self: stretch; padding: 30px 0 30px 24px; border-left: 4px solid #f0ebff; }
 .big-quote { font-size: 5rem; color: #7C3AED; line-height: 0.3; font-family: Georgia, serif; display: block; margin-bottom: 22px; }
-.quote-wrap blockquote { font-size: 1.35rem; color: #2d2d4e; line-height: 1.9; font-style: italic; font-weight: 500; }
+.quote-wrap blockquote { font-size: 1.25rem; color: #2d2d4e; line-height: 1.9; font-style: italic; font-weight: 500; }
 
-/* BIO paragraphs — two column matching profile-top grid */
-.bio-section {
-  background: #fff;
-  padding: 0 60px 60px;
-  border-top: 1px solid #f0f2f5;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 52px;
-}
-.bio-spacer { /* empty left col to align with photo col */ }
+/* ── BIO ── */
+.bio-section { background: #fff; padding: 0 60px 60px; border-top: 1px solid #f0f2f5; display: grid; grid-template-columns: 300px 1fr; gap: 52px; }
+.bio-spacer {}
+.bio-text { padding-top: 36px; padding-left: 24px; border-left: 4px solid #f0ebff; }
 .bio-text p { font-size: 0.92rem; color: #4b5563; line-height: 1.95; margin-bottom: 16px; }
 .bio-text p:last-child { margin-bottom: 0; }
-.bio-text { padding-top: 36px; padding-left: 20px; border-left: 4px solid #f0ebff; }
 
-/* STATS */
-.stats-bar {
-  background: #fff; border-top: 1px solid #e5e7eb;
-  display: flex; box-shadow: 0 -2px 12px rgba(0,0,0,0.04);
-}
+/* ── STATS ── */
+.stats-bar { background: #fff; border-top: 1px solid #e5e7eb; display: flex; box-shadow: 0 -2px 12px rgba(0,0,0,0.04); }
 .stat { flex: 1; padding: 22px 20px; text-align: center; border-right: 1px solid #f0f0f0; }
 .stat:last-child { border-right: none; }
 .stat-num { font-size: 1.8rem; font-weight: 800; color: #12122a; line-height: 1; margin-bottom: 5px; }
 .stat-num sup { color: #7C3AED; font-size: 1rem; }
 .stat-label { font-size: 0.65rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; }
 
-@media (max-width: 900px) {
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+  nav { padding: 0 28px; }
+  .nav-links { gap: 16px; }
+  .profile-card { padding: 0 32px 0; }
+  .bio-section { padding: 0 32px 48px; }
+  .profile-top { grid-template-columns: 260px 1fr; gap: 36px; }
+  .bio-section { grid-template-columns: 260px 1fr; gap: 36px; }
+  .quote-wrap blockquote { font-size: 1.1rem; }
+}
+
+/* ── MOBILE (max 768px) ── */
+@media (max-width: 768px) {
   nav { padding: 0 20px; }
-  .profile-card, .bio-section { padding-left: 24px; padding-right: 24px; }
-  .profile-top, .bio-section { grid-template-columns: 1fr; gap: 24px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .hero-banner { height: 200px; }
+
+  .profile-card { padding: 0 20px 0; }
+  .profile-top { grid-template-columns: 1fr; gap: 0; min-height: unset; }
+  .profile-left-col { align-items: center; }
+  .profile-photo-wrap { margin-top: -70px; margin-bottom: 14px; }
+  .profile-photo { width: 140px; height: 140px; border-width: 4px; }
+  .profile-name { font-size: 1.5rem; }
+  .profile-title { font-size: 0.88rem; }
+
+  .quote-wrap { border-left: none; border-top: 3px solid #f0ebff; padding: 24px 0 24px 0; margin-top: 20px; }
+  .big-quote { font-size: 3.5rem; margin-bottom: 12px; }
+  .quote-wrap blockquote { font-size: 1rem; }
+
+  .bio-section { grid-template-columns: 1fr; gap: 0; padding: 20px 20px 40px; }
   .bio-spacer { display: none; }
-  .bio-text { border-left: none; padding-left: 0; }
-  .profile-photo-wrap { margin-top: -75px; }
-  .nav-links li:nth-child(3),.nav-links li:nth-child(4),.nav-links li:nth-child(5) { display: none; }
+  .bio-text { border-left: none; border-top: 3px solid #f0ebff; padding: 24px 0 0 0; }
+  .bio-text p { font-size: 0.88rem; }
+
+  .stats-bar { flex-wrap: wrap; }
+  .stat { flex: 1 1 50%; border-bottom: 1px solid #f0f0f0; }
+  .stat:nth-child(2) { border-right: none; }
+  .stat-num { font-size: 1.5rem; }
 }
 </style>
 </head>
@@ -183,19 +137,31 @@ nav {
     <li><a href="writing.html">Writing</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- MICROSCOPY BANNER -->
-<div class="hero-banner">
-  <img src="banner.jpg" alt="Banner" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
-
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="skills.html">Skills</a>
+  <a href="experience.html">Experience</a>
+  <a href="publications.html">Publications</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="writing.html">Writing</a>
+  <a href="contact.html">Contact</a>
 </div>
 
-<!-- PROFILE CARD -->
+<!-- BANNER -->
+<div class="hero-banner">
+  <img src="banner.jpg" alt="Banner"/>
+</div>
+
+<!-- PROFILE -->
 <div class="profile-card">
   <div class="profile-top">
-
-    <!-- LEFT: photo overlapping banner + name/title below -->
     <div class="profile-left-col">
       <div class="profile-photo-wrap">
         <div class="profile-photo">
@@ -208,17 +174,15 @@ nav {
       <div class="profile-dept">
         Dept. of Biochemistry &amp; Microbiology<br/>
         North South University<br/>
+        SIIT, Thammasat University
       </div>
     </div>
-
-    <!-- RIGHT: quote starts beside the photo -->
     <div class="quote-wrap">
       <span class="big-quote">"</span>
       <blockquote>
         I grew up fascinated by the invisible world — organisms so small you need a microscope to see them, yet powerful enough to shape the fate of entire populations. That curiosity drove me to microbiology, and the more I learned, the more I realized that bacteriophages could be one of the most powerful tools we have against the antimicrobial resistance crisis threatening global health.
       </blockquote>
     </div>
-
   </div>
 </div>
 
@@ -226,12 +190,8 @@ nav {
 <div class="bio-section">
   <div class="bio-spacer"></div>
   <div class="bio-text">
-    <p>
-      S. M. Iqbal Mahamud is a microbiologist and computational biologist whose research focuses on bacteriophage biology, microbial genomics, and phage host interactions. His work spans the full pipeline of phage research, covering isolation, host-range testing, comparative genomic characterization, and therapeutic assessment. He specifically targets multidrug-resistant pathogens including <em>Pseudomonas aeruginosa</em>, <em>Citrobacter freundii</em>, and <em>Morganella morganii</em>, contributing to the growing body of research aimed at combating antimicrobial resistance.
-    </p>
-    <p>
-      With a Bachelor's degree in Microbiology from North South University, where he graduated with Distinction and Cum Laude recognition, and graduate studies in Biochemical Engineering at SIIT Thammasat University, Iqbal combines rigorous laboratory training with modern computational tools. He has published peer-reviewed research in <em>Current Microbiology</em> and the <em>Journal of Advanced Biotechnology and Experimental Therapeutics</em>, and has presented at national and international conferences in Bangladesh. He is actively seeking research collaborations in phage therapy, genomics, and microbial biotechnology.
-    </p>
+    <p>S. M. Iqbal Mahamud is a microbiologist and computational biologist whose research focuses on bacteriophage biology, microbial genomics, and phage host interactions. His work spans the full pipeline of phage research, covering isolation, host-range testing, comparative genomic characterization, and therapeutic assessment. He specifically targets multidrug-resistant pathogens including <em>Pseudomonas aeruginosa</em>, <em>Citrobacter freundii</em>, and <em>Morganella morganii</em>, contributing to the growing body of research aimed at combating antimicrobial resistance.</p>
+    <p>With a Bachelor's degree in Microbiology from North South University, where he graduated with Distinction and Cum Laude recognition, and graduate studies in Biochemical Engineering at SIIT Thammasat University, Iqbal combines rigorous laboratory training with modern computational tools. He has published peer-reviewed research in <em>Current Microbiology</em> and the <em>Journal of Advanced Biotechnology and Experimental Therapeutics</em>, and has presented at national and international conferences in Bangladesh. He is actively seeking research collaborations in phage therapy, genomics, and microbial biotechnology.</p>
   </div>
 </div>
 
@@ -243,6 +203,19 @@ nav {
   <div class="stat"><div class="stat-num">3.56</div><div class="stat-label">CGPA</div></div>
 </div>
 
-
+<script>
+function toggleMenu() {
+  var m = document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+// close menu on outside click
+document.addEventListener('click', function(e) {
+  var menu = document.getElementById('mobileMenu');
+  var hamburger = document.querySelector('.hamburger');
+  if (!menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
 </body>
 </html>
