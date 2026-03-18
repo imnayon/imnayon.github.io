@@ -168,6 +168,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff
   .tabs { gap: 4px; }
   .tab { padding: 8px 12px; font-size: 0.78rem; }
   .edu-cards { grid-template-columns: 1fr !important; }
+  .edu-cards[style] { grid-template-columns: 1fr !important; }
   .interests-grid { grid-template-columns: 1fr 1fr !important; }
   .skill-group { padding: 20px; }
   .pub-card { padding: 20px; }
@@ -222,7 +223,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff
         <span class="banner-tag">🔬 Bacteriophage Biology</span>
         <span class="banner-tag">🧬 Genomics</span>
         <span class="banner-tag">💻 Bioinformatics</span>
-        <span class="banner-tag">📍 Dhaka, Bangladesh</span>
+        <span class="banner-tag">📍 Lubbock, TX, USA</span>
       </div>
     </div>
   </div>
@@ -243,7 +244,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff
       </div>
       <div class="info-card">
         <div class="info-row"><div class="info-icon">👤</div><div><div class="info-label">Full Name</div><div class="info-value">S. M. Iqbal Mahamud</div></div></div>
-        <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-value">Dhaka, Bangladesh</div></div></div>
+        <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Location</div><div class="info-value">Lubbock, TX, USA</div></div></div>
         <div class="info-row"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dbb2aab9bab7f5b5a8aeeae3ea9bbcb6bab2b7f5b8b4b6">[email&#160;protected]</a></div></div></div>
         <div class="info-row"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-value">+880 1706 992219</div></div></div>
         <div class="info-row"><div class="info-icon">💼</div><div><div class="info-label">LinkedIn</div><div class="info-value">linkedin.com/in/iqbal-mahamud</div></div></div>
@@ -255,7 +256,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff
     <div class="edu-section">
       <div class="section-title">Academic Background</div>
       <div class="section-heading">Education</div>
-      <div class="edu-cards">
+      <div class="edu-cards" style="grid-template-columns: repeat(3,1fr);">
+        <div class="edu-card">
+          <div class="edu-year">Aug 2026 – Present</div>
+          <div class="edu-degree">M.S. in Microbiology (Thesis)</div>
+          <div class="edu-school">Texas Tech University</div>
+          <div class="edu-location">📍 Lubbock, Texas, USA</div>
+          <div class="edu-badge" style="background:#ecfdf5;color:#065f46;border-color:#a7f3d0;">🎓 Currently Enrolled</div>
+        </div>
         <div class="edu-card">
           <div class="edu-year">Aug 2025 – Jan 2026</div>
           <div class="edu-degree">M.S. in Biochemical Engineering</div>
@@ -282,4 +290,5 @@ nav { position: fixed; top: 0; left: 0; right: 0; height: 68px; background: #fff
         <div class="interest-card"><div class="interest-icon">💊</div><div class="interest-title">Phage Therapy</div><div class="interest-desc">Developing next-generation phage-based strategies to combat antimicrobial resistance.</div></div>
         <div class="interest-card"><div class="interest-icon">💻</div><div class="interest-title">Bioinformatics</div><div class="interest-desc">Python, Linux, and data analysis tools applied to microbiology and genomics research.</div></div>
         <div class="interest-card"><div class="interest-icon">🔬</div><div class="interest-title">Molecular Biology</div><div class="interest-desc">Experimental design, data collection, and molecular techniques in lab settings.</div></div>
+        <div class="interest-card" style="border-top: 3px solid #7C3AED;"><div class="interest-icon">🧫</div><div class="interest-title">Acinetobacter Phage Genomics</div><div class="interest-desc">Large-scale comparative genomic analysis of bacteriophages infecting <em>Acinetobacter</em> species, evaluating their therapeutic potential against drug-resistant clinical strains.</div></div>
         <div class="interest-card"><div class="interest-icon">📚</div><div class="interest-title">Science Education</div><div class="interest-desc">Teaching biology and microbiology
