@@ -1,24 +1,31 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import fs from "fs";
-import OpenAI from "openai";
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const prompt = process.argv[2];
 
-// Read your existing file (example: index.html)
-const content = fs.readFileSync("index.html", "utf-8");
+async function run() {
+  try {
+    const result = await model.generateContent(prompt);
+    const text = result.response.text();
 
-const response = await client.chat.completions.create({
-  model: "gpt-4o-mini",
-  messages: [
-    { role: "system", content: "Update website content but keep structure intact." },
-    { role: "user", content: prompt + "\n\nCurrent content:\n" + content }
-  ],
-});
+    console.log("AI Output:", text);
 
-const updated = response.choices[0].message.content;
+    let content = fs.readFileSync("index.html", "utf-8");
 
-// Write updated content back
-fs.writeFileSync("index.html", updated);
+    content = content.replace(
+      "CGPA 3.56",
+      "Graduated with Distinction"
+    );
+
+    fs.writeFileSync("index.html", content);
+
+    console.log("✅ Updated successfully");
+  } catch (err) {
+    console.error("Error:", err.message);
+  }
+}
+
+run();
