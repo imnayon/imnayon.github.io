@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install packages
-        run: npm install
+      - name: Install Gemini manually
+        run: npm install @google/generative-ai dotenv
 
       - name: Run AI script
         run: node update.js "${{ github.event.inputs.prompt }}"
