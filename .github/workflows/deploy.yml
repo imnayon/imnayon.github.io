@@ -1,0 +1,32 @@
+name: AI Website Updater
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "What do you want to update?"
+        required: true
+
+jobs:
+  update-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install openai fs
+
+      - name: Run AI update script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node update.js "${{ github.event.inputs.prompt }}"
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "AI update: ${{ github.event.inputs.prompt }}" || echo "No changes"
+          git push
